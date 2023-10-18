@@ -27,12 +27,11 @@ if __name__ == '__main__':
     #--------------------------------------------------------------------------------------------------------#  
         # time = state.json()['data']['leftDays']
         # time = time.split('.')[0]
-        time = 99
         email = state.json()['data']['email']
         if 'message' in checkin.text:
             mess = checkin.json()['message']
-            print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
-            sendContent += email+'----'+mess+'----剩余('+time+')天\n'
+            print(email+'----结果--'+mess)  # 日志输出
+            sendContent += email+'----'+mess+'\n'
         else:
             requests.get('http://www.pushplus.plus/send?token=' + sckey + '&content='+email+'cookie已失效')
             print('cookie已失效')  # 日志输出
